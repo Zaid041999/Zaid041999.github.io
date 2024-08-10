@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Webpage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 2em 0;
+            animation: fadeIn 2s ease-in-out;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            flex-wrap: wrap;
+            animation: slideIn 1s ease-in-out;
+        }
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+            cursor: pointer;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        section {
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 1s ease-in-out;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            animation: fadeIn 2s ease-in-out;
+        }
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+        }
+        .contact-form label, .contact-form input, .contact-form textarea {
+            margin-bottom: 10px;
+        }
+        .contact-form input, .contact-form textarea {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .contact-form button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .contact-form button:hover {
+            background-color: #45a049;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                margin: 10px;
+                padding: 15px;
+            }
+            nav a {
+                padding: 10px;
+            }
+            header {
+                padding: 1.5em 0;
+            }
+        }
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Welcome to My Personal Webpage</h1>
+</header>
+
+<nav>
+    <a href="#home" onclick="smoothScroll('home')">Home</a>
+    <a href="#about" onclick="smoothScroll('about')">About Me</a>
+    <a href="#portfolio" onclick="smoothScroll('portfolio')">Portfolio</a>
+    <a href="#contact" onclick="smoothScroll('contact')">Contact</a>
+</nav>
+
+<section id="home">
+    <h2>Home</h2>
+    <p>Hello! Welcome to my personal webpage. Here you can learn more about me, see my work, and get in touch.</p>
+</section>
+
+<section id="about">
+    <h2>About Me</h2>
+    <p>This is a short bio about myself. I am passionate about web development and love to create new projects.</p>
+</section>
+
+<section id="portfolio">
+    <h2>Portfolio</h2>
+    <p>Here are some of my projects:</p>
+    <ul>
+        <li><a href="https://example.com/project1" target="_blank">Project 1</a></li>
+        <li><a href="https://example.com/project2" target="_blank">Project 2</a></li>
+        <li><a href="https://example.com/project3" target="_blank">Project 3</a></li>
+    </ul>
+</section>
+
+<section id="contact">
+    <h2>Contact</h2>
+    <form class="contact-form" onsubmit="return validateForm()">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Send</button>
+    </form>
+</section>
+
+<footer>
+    <p>&copy; 2024 My Personal Webpage</p>
+</footer>
+
+<script>
+    // Smooth scrolling function
+    function smoothScroll(targetId) {
+        document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Form validation function
+    function validateForm() {
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+
+        if (name.trim() === '' || email.trim() === '' || message.trim() === '') {
+            alert('Please fill out all fields.');
+            return false;
+        }
+        alert('Form submitted successfully!');
+        return true;
+    }
+</script>
+
+</body>
+</html>
